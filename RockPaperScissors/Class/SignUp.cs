@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace RockPaperScissors.Class
 {
-    internal class SignUp
+    public class SignUp
     {
         string _userName;
         public string userName { 

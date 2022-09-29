@@ -36,12 +36,12 @@
             this.lblCounting = new System.Windows.Forms.Label();
             this.lblUserScore = new System.Windows.Forms.Label();
             this.lblcpuScore = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picCpu = new System.Windows.Forms.PictureBox();
+            this.picUser = new System.Windows.Forms.PictureBox();
             this.lblCpuChoise = new System.Windows.Forms.Label();
             this.lblUserChoise = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCpu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRock
@@ -51,8 +51,10 @@
             this.btnRock.Name = "btnRock";
             this.btnRock.Size = new System.Drawing.Size(119, 44);
             this.btnRock.TabIndex = 6;
+            this.btnRock.Tag = "R";
             this.btnRock.Text = "Rock";
             this.btnRock.UseVisualStyleBackColor = true;
+            this.btnRock.Click += new System.EventHandler(this.MakingChoise);
             // 
             // btnPaper
             // 
@@ -61,9 +63,10 @@
             this.btnPaper.Name = "btnPaper";
             this.btnPaper.Size = new System.Drawing.Size(125, 44);
             this.btnPaper.TabIndex = 6;
+            this.btnPaper.Tag = "P";
             this.btnPaper.Text = "Paper";
             this.btnPaper.UseVisualStyleBackColor = true;
-            this.btnPaper.Click += new System.EventHandler(this.btnPaper_Click);
+            this.btnPaper.Click += new System.EventHandler(this.MakingChoise);
             // 
             // btnScissors
             // 
@@ -72,8 +75,10 @@
             this.btnScissors.Name = "btnScissors";
             this.btnScissors.Size = new System.Drawing.Size(117, 44);
             this.btnScissors.TabIndex = 6;
+            this.btnScissors.Tag = "S";
             this.btnScissors.Text = "Scissors";
             this.btnScissors.UseVisualStyleBackColor = true;
+            this.btnScissors.Click += new System.EventHandler(this.MakingChoise);
             // 
             // timer1
             // 
@@ -98,9 +103,9 @@
             this.lblUserScore.ForeColor = System.Drawing.SystemColors.Window;
             this.lblUserScore.Location = new System.Drawing.Point(64, 170);
             this.lblUserScore.Name = "lblUserScore";
-            this.lblUserScore.Size = new System.Drawing.Size(109, 20);
+            this.lblUserScore.Size = new System.Drawing.Size(114, 20);
             this.lblUserScore.TabIndex = 9;
-            this.lblUserScore.Text = "User Score :";
+            this.lblUserScore.Text = "User Result :";
             // 
             // lblcpuScore
             // 
@@ -109,29 +114,29 @@
             this.lblcpuScore.ForeColor = System.Drawing.SystemColors.Window;
             this.lblcpuScore.Location = new System.Drawing.Point(567, 170);
             this.lblcpuScore.Name = "lblcpuScore";
-            this.lblcpuScore.Size = new System.Drawing.Size(149, 20);
+            this.lblcpuScore.Size = new System.Drawing.Size(154, 20);
             this.lblcpuScore.TabIndex = 9;
-            this.lblcpuScore.Text = "Computer Score :";
+            this.lblcpuScore.Text = "Computer Result :";
             // 
-            // pictureBox1
+            // picCpu
             // 
-            this.pictureBox1.Image = global::RockPaperScissors.Properties.Resources.PAPER;
-            this.pictureBox1.Location = new System.Drawing.Point(344, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.picCpu.Image = global::RockPaperScissors.Properties.Resources.PAPER;
+            this.picCpu.Location = new System.Drawing.Point(344, 132);
+            this.picCpu.Name = "picCpu";
+            this.picCpu.Size = new System.Drawing.Size(100, 100);
+            this.picCpu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCpu.TabIndex = 10;
+            this.picCpu.TabStop = false;
             // 
-            // pictureBox2
+            // picUser
             // 
-            this.pictureBox2.Image = global::RockPaperScissors.Properties.Resources.ROCK;
-            this.pictureBox2.Location = new System.Drawing.Point(344, 238);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            this.picUser.Image = global::RockPaperScissors.Properties.Resources.ROCK;
+            this.picUser.Location = new System.Drawing.Point(344, 238);
+            this.picUser.Name = "picUser";
+            this.picUser.Size = new System.Drawing.Size(100, 100);
+            this.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUser.TabIndex = 10;
+            this.picUser.TabStop = false;
             // 
             // lblCpuChoise
             // 
@@ -163,8 +168,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblUserChoise);
             this.Controls.Add(this.lblCpuChoise);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picUser);
+            this.Controls.Add(this.picCpu);
             this.Controls.Add(this.lblcpuScore);
             this.Controls.Add(this.lblUserScore);
             this.Controls.Add(this.lblCounting);
@@ -173,9 +178,8 @@
             this.Controls.Add(this.btnRock);
             this.Name = "GameMenu";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.GameMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCpu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,8 +194,8 @@
         private System.Windows.Forms.Label lblCounting;
         private System.Windows.Forms.Label lblUserScore;
         private System.Windows.Forms.Label lblcpuScore;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picCpu;
+        private System.Windows.Forms.PictureBox picUser;
         private System.Windows.Forms.Label lblCpuChoise;
         private System.Windows.Forms.Label lblUserChoise;
     }
