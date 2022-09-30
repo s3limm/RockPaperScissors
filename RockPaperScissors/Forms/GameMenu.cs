@@ -31,9 +31,9 @@ namespace RockPaperScissors
         }
         private void MakingChoise(object sender, EventArgs e)
         {
-            timer1.Start();
             Button btn = sender as Button;
             playerChoise = (string)btn.Tag;
+            timer1.Start();
 
             int i = random.Next(0, 3);
             cpuChoise = options[i];
