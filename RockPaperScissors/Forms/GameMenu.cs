@@ -28,21 +28,26 @@ namespace RockPaperScissors
         {
             integer--;
             lblCounting.Text = integer.ToString();
+            if (integer <= 0)
+            {
+                timer1.Stop();
+            }
         }
         private void MakingChoise(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             playerChoise = (string)btn.Tag;
-            timer1.Start();
 
             int i = random.Next(0, 3);
             cpuChoise = options[i];
 
-            lblUserChoise.Text = $"{_userName}'s Choise is:" + TextAndPictureEvent(playerChoise, picUser);
+            timer1.Enabled = true;
 
-
-            lblCpuChoise.Text = "Cpu's Choise is:" + TextAndPictureEvent(cpuChoise, picCpu);
-
+            
+            
+                lblUserChoise.Text = $"{_userName}'s Choise is:" + TextAndPictureEvent(playerChoise, picUser);
+                lblCpuChoise.Text = "Cpu's Choise is:" + TextAndPictureEvent(cpuChoise, picCpu);
+            
         }
 
 
