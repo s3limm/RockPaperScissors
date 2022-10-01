@@ -41,9 +41,7 @@ namespace RockPaperScissors
             int i = random.Next(0, 3);
             cpuChoise = options[i];
 
-            timer1.Enabled = true;
-
-            
+            lblCounting.Enabled = true;
             
                 lblUserChoise.Text = $"{_userName}'s Choise is:" + TextAndPictureEvent(playerChoise, picUser);
                 lblCpuChoise.Text = "Cpu's Choise is:" + TextAndPictureEvent(cpuChoise, picCpu);

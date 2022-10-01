@@ -88,6 +88,7 @@
             // lblCounting
             // 
             this.lblCounting.AutoSize = true;
+            this.lblCounting.Enabled = false;
             this.lblCounting.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblCounting.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblCounting.Location = new System.Drawing.Point(360, 20);
